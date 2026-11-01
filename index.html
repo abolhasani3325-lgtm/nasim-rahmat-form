@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#176b57">
+<title>فرم عضویت کانون فرهنگی نسیم رحمت</title>
+<style>
+:root{font-family:Tahoma,Arial,sans-serif;color:#18332c;background:#f2f7f4}
+*{box-sizing:border-box}
+body{margin:0;padding:18px 12px 36px}
+main{max-width:650px;margin:0 auto}
+header{background:#176b57;color:white;padding:24px 20px;border-radius:18px 18px 0 0}
+h1{font-size:1.35rem;margin:0 0 10px}
+header p{line-height:1.9;margin:0;font-size:.95rem}
+form{background:#fff;padding:20px;border-radius:0 0 18px 18px;box-shadow:0 8px 28px #153c2b12}
+.field{margin-bottom:18px}
+label,.legend{display:block;font-weight:bold;margin-bottom:8px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #c9d9d1;border-radius:10px;font:inherit;background:#fff}
+textarea{min-height:90px;resize:vertical}
+.hint{font-size:.82rem;color:#587168;margin-top:6px;line-height:1.7}
+.choices{display:grid;gap:10px}
+.choices label{font-weight:normal;display:flex;gap:9px;align-items:flex-start;line-height:1.7;margin:0}
+.choices input{width:auto;margin-top:5px}
+button{width:100%;border:0;border-radius:11px;background:#176b57;color:white;padding:14px;font:inherit;font-weight:bold;cursor:pointer}
+button:disabled{opacity:.6}
+#notice{display:none;margin-top:16px;padding:12px;border-radius:10px;line-height:1.8}
+footer{text-align:center;color:#587168;font-size:.8rem;margin:16px 0}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>فرم عضویت کانون فرهنگی نسیم رحمت</h1>
+<p>به خانواده نسیم رحمت خوش آمدید. لطفاً اطلاعات زیر را تکمیل کنید. اطلاعات شما فقط باید برای پیگیری درخواست عضویت استفاده شود.</p>
+</header>
+<form id="membershipForm">
+<div class="field"><label for="fullName">۱. نام و نام خانوادگی *</label><input id="fullName" name="fullName" autocomplete="name" required></div>
+<div class="field"><label for="birthDate">۲. تاریخ تولد (اختیاری)</label><input id="birthDate" name="birthDate" placeholder="مثلاً ۱۳۷۵/۰۵/۲۰"></div>
+<div class="field"><label for="phone">۳. شماره همراه *</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="مثلاً ۰۹۱۲۳۴۵۶۷۸۹"></div>
+<div class="field"><label for="city">۴. شهر و محدوده محل سکونت</label><input id="city" name="city" placeholder="مثلاً کرمان، بلوار جهاد"></div>
+<div class="field"><label for="membership">۵. نوع عضویت موردنظر *</label><select id="membership" name="membership" required><option value="">انتخاب کنید</option><option>عضو فعال</option><option>همکار داوطلب</option><option>شرکت‌کننده در برنامه‌ها</option><option>حامی کانون</option><option>سایر</option></select></div>
+<div class="field"><span class="legend">۶. زمینه‌های علاقه‌مندی و همکاری</span><div class="choices">
+<label><input type="checkbox" name="interests" value="فعالیت‌های فرهنگی و مذهبی">فعالیت‌های فرهنگی و مذهبی</label>
+<label><input type="checkbox" name="interests" value="آموزش قرآن و معارف">آموزش قرآن و معارف</label>
+<label><input type="checkbox" name="interests" value="مراسم و مناسبت‌های مذهبی">مراسم و مناسبت‌های مذهبی</label>
+<label><input type="checkbox" name="interests" value="فعالیت‌های هنری و آموزشی">فعالیت‌های هنری و آموزشی</label>
+<label><input type="checkbox" name="interests" value="فعالیت‌های اجتماعی و جهادی">فعالیت‌های اجتماعی و جهادی</label>
+</div></div>
+<div class="field"><label for="skills">۷. مهارت‌ها و توانمندی‌ها</label><textarea id="skills" name="skills" placeholder="مثلاً تدریس، طراحی، رسانه، اجرا، امور فنی..."></textarea></div>
+<div class="field"><label for="availability">۸. چه زمانی برای همکاری فرصت دارید؟</label><select id="availability" name="availability"><option value="">انتخاب کنید</option><option>روزهای کاری</option><option>عصرها</option><option>پایان هفته</option><option>بسته به برنامه</option></select></div>
+<div class="field"><label for="referral">۹. از چه طریقی با کانون آشنا شدید؟</label><select id="referral" name="referral"><option value="">انتخاب کنید</option><option>ایتا</option><option>اینستاگرام</option><option>دوستان و آشنایان</option><option>شرکت در برنامه‌ها</option><option>سایر</option></select></div>
+<div class="field"><label for="notes">۱۰. توضیحات تکمیلی (اختیاری)</label><textarea id="notes" name="notes"></textarea></div>
+<button type="submit">ثبت درخواست عضویت</button>
+<div id="notice" role="status"></div>
+</form>
+<footer>کانون فرهنگی نسیم رحمت · از همراهی شما سپاسگزاریم</footer>
+</main>
+<script>
+/*
+برای ذخیره واقعی پاسخ‌ها باید فرم به یک سرویس پشتیبان (endpoint) متصل شود.
+این فایل به‌تنهایی پاسخ‌ها را برای مدیر ارسال یا در جدول ذخیره نمی‌کند.
+پس از راه‌اندازی endpoint امن، مقدار FORM_ENDPOINT را با نشانی آن جایگزین کنید.
+*/
+const FORM_ENDPOINT = "";
+const form = document.getElementById("membershipForm");
+const notice = document.getElementById("notice");
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+  if (!FORM_ENDPOINT) {
+    notice.style.display = "block";
+    notice.style.background = "#fff4d8";
+    notice.style.color = "#704d00";
+    notice.textContent = "فرم از نظر ظاهری آماده است، اما هنوز به محل ذخیره پاسخ‌ها وصل نشده؛ بنابراین اطلاعات ارسال یا ذخیره نشد. قبل از انتشار عمومی، باید سرویس ثبت پاسخ‌ها متصل شود.";
+    return;
+  }
+  const data = Object.fromEntries(new FormData(form).entries());
+  data.interests = [...form.querySelectorAll('input[name="interests"]:checked')].map(x => x.value);
+  try {
+    const response = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    });
+    if (!response.ok) throw new Error("submit failed");
+    notice.style.display = "block";
+    notice.style.background = "#e2f5e9";
+    notice.style.color = "#155b35";
+    notice.textContent = "درخواست عضویت شما با موفقیت ثبت شد.";
+    form.reset();
+  } catch (_) {
+    notice.style.display = "block";
+    notice.style.background = "#fde8e7";
+    notice.style.color = "#8b1e19";
+    notice.textContent = "ثبت درخواست انجام نشد. لطفاً بعداً دوباره تلاش کنید.";
+  }
+});
+</script>
+</body>
+</html>
